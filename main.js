@@ -4,9 +4,9 @@ function Validator(options) {
     var formElement = document.querySelector(options.form);
     console.log(formElement);
     console.log(options.rules);
-    
-    
-    
+
+
+
     function OutputError(inputElement, rule) {
         var errorMessage = rule.test(inputElement.value);
 
@@ -36,9 +36,15 @@ function Validator(options) {
                     //lấy được value: inputElement.value
                     //test func : rule.test
 
-                    OutputError(inputElement,rule);
+                    OutputError(inputElement, rule);
                     // console.log(inputElement.parentElement.querySelector('.form-message'));
                     // console.log(errorMessage);
+                }
+                inputElement.oninput =function()
+                {
+                    var errorElement = inputElement.parentElement.querySelector(options.errorMessage);
+                    errorElement.innerText = '';
+                    inputElement.parentElement.classList.remove('invalid');
                 }
             }
         });
@@ -61,4 +67,13 @@ Validator.isRequired = function (selector) {
 //bắt buộc phải là email
 Validator.isEmail = function (selector) {
     return selector;
+}
+//bắt buộc phải là số điện thoại
+Validator.isPhone = function (selector) {
+    return {
+        selector: selector,
+        test: function (value) {
+            return /(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/.test(value) ? undefined : 'Số điện thoại không đúng định dạng!';
+        }
+    }
 }
