@@ -32,7 +32,7 @@
                 <div class="form-group">
                     <label for="" class="form-label">Ngày sinh</label>
                     <input type="date" name="dateOfBirth" id="dateOfBirth" class="form-control">
-                    <span class="form-message"></span>
+                    <!-- <span class="form-message"></span> -->
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Số điện thoại</label>
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group-top">
                 <div class="form-group">
-                    <label for="" class="form-label">Email</label>
+                    <label for="email" class="form-label">Email</label>
                     <input type="text" name="email" id="email" placeholder="Vd:sang@gmail.com" class="form-control">
                     <span class="form-message"></span>
                 </div>
@@ -75,6 +75,20 @@
 
 
     <script src="/main.js"></script>
+    <script>
+        //tạo đối tượng validator 
+        Validator({
+            form:'#form-1',
+            errorMessage:'.form-message',
+            rules :[
+
+                Validator.isRequired("#fullname"),//hàm 
+                Validator.isRequired("#username"),
+                Validator.isEmail("#email"),//hàm
+                Validator.isPhone("#phoneNumber")
+            ]
+        })
+    </script>
 </body>
 
 </html>
