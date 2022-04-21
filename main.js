@@ -36,11 +36,11 @@ if(formElement){
         }
         //var errorElement = inputElement.parentElement.querySelector(options.errorMessage)//trỏ đến thẻ span thông báo message;
     
-        const elementParent = inputElement.closest(options.form);
+        const elementParent = inputElement.closest(options.formSelector);
     
         console.log(elementParent);
         var errorElement = elementParent.querySelector(options.errorMessage);
-        console.log(errorElement);
+        console.log(errorElement);console.log(errorMessage);
         
         if (errorMessage) {
             errorElement.innerText = errorMessage;
