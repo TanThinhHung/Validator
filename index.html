@@ -82,10 +82,17 @@
             errorMessage:'.form-message',
             rules :[
 
-                Validator.isRequired("#fullname"),//hàm 
+                Validator.isRequired("#fullname","Vui lòng nhập họ và tên"),//hàm 
                 Validator.isRequired("#username"),
+                Validator.isRequired("#phoneNumber"),
                 Validator.isEmail("#email"),//hàm
-                Validator.isPhone("#phoneNumber")
+                Validator.isPhone("#phoneNumber"),
+                Validator.isPassword("#password"),
+                Validator.isComfirmedPass("#repassword",function(){
+                    var getvalue = document.querySelector("#form-1 #password");
+                    return getvalue.value;
+                })
+                
             ]
         })
     </script>
