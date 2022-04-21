@@ -34,7 +34,6 @@ if(formElement){
                     if(errorMessage) break;
                     // console.log(errorMessage);
         }
-
         //var errorElement = inputElement.parentElement.querySelector(options.errorMessage)//trỏ đến thẻ span thông báo message;
     
         const elementParent = inputElement.closest(options.form);
